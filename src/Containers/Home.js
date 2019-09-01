@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Button, Input, Typography} from 'antd'
 import axios from 'axios'
+import '../css/Home.css'
 
 export default class Home extends Component {
    constructor (props) {
@@ -41,8 +42,13 @@ export default class Home extends Component {
        return (
            <>
                <div className = "container">
+                  
                    <div className = "subcontainer">
-                    <button onClick={this.onClickFind}>Find</button> 
+                    <span className = "text"> HEY MUNCHIES, PLEASE PICK MY RESTRAUNT FOR ME </span>
+                  
+                    <Button type = "primary" style = {{size: 'small', backgroundColor:'black', width: '10vw', marginLeft: '130px'}} onClick={this.onClickFind}>
+                      I'm on it!!!
+                      </Button> 
                    </div>
                </div>
            </>

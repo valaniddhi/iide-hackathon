@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {Button} from 'antd'
 import axios from 'axios';
+import '../css/Order.css'
 
 const generateRandomNumber = (min, max) => {  
     min = Math.ceil(min); 
@@ -24,16 +26,41 @@ export default class Order extends Component {
         });
         const restaurants = res.data.nearby_restaurants;
         console.log(restaurants);
-        const randomIndex = generateRandomNumber(0, restaurants.length);
-        this.setState({ selectedRestaurant: restaurants[randomIndex].restaurant });
+        
+        const randomIndex = generateRandomNumber(0, restaurants.length-1);
+        console.log(randomIndex);
+    
+        this.setState({selectedRestaurant: restaurants[randomIndex].restaurant});
+        this.setState({thumb: restaurants[randomIndex].restaurant.thumb});
+        this.setState({ourl: restaurants[randomIndex].restaurant.order_url});
+        // console.log(this.state.ourl);
+        
+        
     }
+    refreshBody = () => {
+        console.log('button clicked');
+        window.location.reload();
+    }
+    
 
     render() {
         const {selectedRestaurant}= this.state;
         return (
-            <div>
-                {selectedRestaurant ? selectedRestaurant.name : null}                
+            <div className = "orderpage1">
+                <div className = "container1">
+                <h1>  Why don't you eat from </h1>
+                <h2>{selectedRestaurant ? selectedRestaurant.name : null} </h2>
+                <br/> <br/>
+                <div className = "image">
+                    <img alt = {this.state.thumb} src = {this.state.thumb} />   <br/>  <br />
+                 </div>
+                 <Button type = "primary" onClick = {this.refreshBody}> No that place looks like shit</Button>
+                 <br/> <br/>
+                 <Button type = "primary" 
+                         href = {this.state.ourl}
+                         target = "external">That looks Good! order now </Button>
+                </div>
             </div>
         )
-    }
+    } 
 }
