@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {Button, Input, Typography} from 'antd'
-import axios from 'axios'
+import {Button} from 'antd'
 import '../css/Home.css'
 
 export default class Home extends Component {
@@ -29,8 +28,6 @@ export default class Home extends Component {
            );
          }
      }
-   //   handleClick = (dispatch , e) = >{
-   //   }P
 
     onClickFind = () => {
       const {history}= this.props;
@@ -41,14 +38,12 @@ export default class Home extends Component {
    render() {
        return (
            <>
-               <div className = "container">
-                  
+               <div className = "container">    
                    <div className = "subcontainer">
                     <span className = "text"> HEY MUNCHIES, PLEASE PICK MY RESTRAUNT FOR ME </span>
-                  
-                    <Button type = "primary" style = {{size: 'small', backgroundColor:'black', width: '10vw', marginLeft: '130px'}} onClick={this.onClickFind}>
-                      I'm on it!!!
-                      </Button> 
+                    <Button type = "primary" style = {{size: 'small', backgroundColor:'black', paddingLeft: '50px', paddingRight: '50px', marginTop: '10px'}} onClick={this.onClickFind}>
+                          I'm on it!!!
+                    </Button> 
                    </div>
                </div>
            </>

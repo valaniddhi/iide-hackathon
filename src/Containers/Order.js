@@ -33,9 +33,7 @@ export default class Order extends Component {
         this.setState({selectedRestaurant: restaurants[randomIndex].restaurant});
         this.setState({thumb: restaurants[randomIndex].restaurant.thumb});
         this.setState({ourl: restaurants[randomIndex].restaurant.order_url});
-        // console.log(this.state.ourl);
-        
-        
+        console.log(this.state.ourl);
     }
     refreshBody = () => {
         console.log('button clicked');
@@ -51,9 +49,8 @@ export default class Order extends Component {
                 <h1>  Why don't you eat from </h1>
                 <h2>{selectedRestaurant ? selectedRestaurant.name : null} </h2>
                 <br/> <br/>
-                <div className = "image">
-                    <img alt = {this.state.thumb} src = {this.state.thumb} />   <br/>  <br />
-                 </div>
+                <img className = "image" alt = {this.state.thumb} src = {this.state.thumb} />   <br/>  <br />
+                 
                  <Button type = "primary" onClick = {this.refreshBody}> No that place looks like shit</Button>
                  <br/> <br/>
                  <Button type = "primary" 
